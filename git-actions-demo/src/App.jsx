@@ -69,8 +69,7 @@ export default function App() {
             <div
               className="fieldRow"
               style={{
-                display: "grid",
-                gridTemplateColumns: canClear ? "1fr auto" : "1fr",
+                display: "flex",
                 gap: 10,
                 alignItems: "center",
               }}
@@ -86,6 +85,10 @@ export default function App() {
                 onKeyDown={(e) => {
                   if (e.key === "Escape") setName("World");
                 }}
+                style={{
+                  flex: "1 1 auto",
+                  minWidth: 0, // critical: prevents overlap/push
+                }}
               />
 
               {canClear && (
@@ -93,7 +96,9 @@ export default function App() {
                   type="button"
                   className="button"
                   onClick={() => setName("World")}
+                  aria-label="Clear input"
                   style={{
+                    flex: "0 0 auto",
                     padding: "12px 14px",
                     borderRadius: 16,
                     background: "rgba(255,255,255,0.04)",
@@ -101,8 +106,8 @@ export default function App() {
                     boxShadow: "none",
                     whiteSpace: "nowrap",
                     opacity: 0.92,
+                    height: 44,
                   }}
-                  aria-label="Clear input"
                 >
                   Clear
                 </button>
