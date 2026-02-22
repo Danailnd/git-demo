@@ -5,7 +5,7 @@ import "./app.css";
 const STORAGE_KEY = "git-demo:name";
 
 export default function App() {
-  const [name, setName] = useState("World");
+  const [name, setName] = useState("");
   const [theme, setTheme] = useState("dark");
 
   const inputRef = useRef(null);
@@ -17,7 +17,7 @@ export default function App() {
   useEffect(() => {
     try {
       const saved = localStorage.getItem(STORAGE_KEY);
-      if (saved && saved.trim().length > 0) setName(saved);
+      if (saved !== null) setName(saved);
     } catch {
       // ignore
     }
@@ -33,7 +33,7 @@ export default function App() {
 
   const today = useMemo(() => dayjs().format("dddd, MMM D, YYYY"), []);
 
-  const canClear = name.trim() !== "" && name !== "World";
+  const canClear = name.trim() !== "";
 
   return (
     <div className={`page ${theme}`}>
@@ -48,7 +48,6 @@ export default function App() {
             <p className="meta">{today}</p>
           </div>
 
-          {/* INTENTIONALLY BROKEN for git bisect demo */}
           <button className="button" onClick={() => setTheme(theme)}>
             Toggle {theme === "dark" ? "Light" : "Dark"} Mode
           </button>
@@ -83,11 +82,11 @@ export default function App() {
                 placeholder="Type your name…"
                 aria-label="Name"
                 onKeyDown={(e) => {
-                  if (e.key === "Escape") setName("World");
+                  if (e.key === "Escape") setName("");
                 }}
                 style={{
                   flex: "1 1 auto",
-                  minWidth: 0, // critical: prevents overlap/push
+                  minWidth: 0,
                 }}
               />
 
@@ -95,7 +94,7 @@ export default function App() {
                 <button
                   type="button"
                   className="button"
-                  onClick={() => setName("World")}
+                  onClick={() => setName("")}
                   aria-label="Clear input"
                   style={{
                     flex: "0 0 auto",
@@ -118,7 +117,7 @@ export default function App() {
               <div className="preview" style={{ padding: 18 }}>
                 <div className="previewMeta">Preview</div>
                 <div className="previewTitle" style={{ fontSize: 32 }}>
-                  Hello, {name || "World"} 👋
+                  Hello, {name.trim() ? name : "World"} 👋
                 </div>
               </div>
             </div>
