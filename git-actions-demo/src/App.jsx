@@ -2,19 +2,6 @@ import { useMemo, useState } from "react";
 import dayjs from "dayjs";
 import "./app.css";
 
-function Pill({ children }) {
-  return <span className="pill">{children}</span>;
-}
-
-function Stat({ label, value }) {
-  return (
-    <div className="stat">
-      <div className="statLabel">{label}</div>
-      <div className="statValue">{value}</div>
-    </div>
-  );
-}
-
 export default function App() {
   const [name, setName] = useState("World");
   const [theme, setTheme] = useState("dark");
@@ -29,7 +16,7 @@ export default function App() {
         <header className="header">
           <div>
             <h1 className="title">
-            Git demo <span className="gradientText">frontend</span>
+              Git demo <span className="gradientText">frontend</span>
             </h1>
             <p className="meta">{today}</p>
           </div>
@@ -44,9 +31,7 @@ export default function App() {
 
         <main className="grid">
           <section className="card mainCard">
-            <p className="cardText">
-              Type something...
-            </p>
+            <p className="cardText">Type something...</p>
 
             <div className="fieldRow">
               <input
