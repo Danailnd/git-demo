@@ -10,27 +10,24 @@ export default function App() {
 
   const inputRef = useRef(null);
 
-  // Autofocus input
   useEffect(() => {
     inputRef.current?.focus();
   }, []);
 
-  // Load saved name once
   useEffect(() => {
     try {
       const saved = localStorage.getItem(STORAGE_KEY);
       if (saved && saved.trim().length > 0) setName(saved);
     } catch {
-      // ignore storage errors (demo friendly)
+      // ignore
     }
   }, []);
 
-  // Persist name
   useEffect(() => {
     try {
       localStorage.setItem(STORAGE_KEY, name);
     } catch {
-      // ignore storage errors
+      // ignore
     }
   }, [name]);
 
@@ -51,21 +48,33 @@ export default function App() {
             <p className="meta">{today}</p>
           </div>
 
-          {/* INTENTIONALLY BROKEN for git bisect demo:
-              This onClick no longer toggles theme. */}
-          <button
-            className="button"
-            onClick={() => setTheme(theme)} // BUG: doesn't change anything
-          >
+          {/* INTENTIONALLY BROKEN for git bisect demo */}
+          <button className="button" onClick={() => setTheme(theme)}>
             Toggle {theme === "dark" ? "Light" : "Dark"} Mode
           </button>
         </header>
 
         <main className="grid">
-          <section className="card mainCard">
-            <p className="cardText">Type something...</p>
+          <section
+            className="card mainCard"
+            style={{
+              maxWidth: 740,
+              padding: 26,
+            }}
+          >
+            <p className="cardText" style={{ fontSize: 16, marginBottom: 14 }}>
+              Type something...
+            </p>
 
-            <div className="fieldRow">
+            <div
+              className="fieldRow"
+              style={{
+                display: "grid",
+                gridTemplateColumns: canClear ? "1fr auto" : "1fr",
+                gap: 10,
+                alignItems: "center",
+              }}
+            >
               <input
                 ref={inputRef}
                 id="nameInput"
@@ -81,20 +90,31 @@ export default function App() {
 
               {canClear && (
                 <button
-                  className="button"
                   type="button"
+                  className="button"
                   onClick={() => setName("World")}
-                  style={{ marginTop: 10 }}
+                  style={{
+                    padding: "12px 14px",
+                    borderRadius: 16,
+                    background: "rgba(255,255,255,0.04)",
+                    border: "1px solid rgba(255,255,255,0.14)",
+                    boxShadow: "none",
+                    whiteSpace: "nowrap",
+                    opacity: 0.92,
+                  }}
+                  aria-label="Clear input"
                 >
                   Clear
                 </button>
               )}
             </div>
 
-            <div className="previewShell">
-              <div className="preview">
+            <div className="previewShell" style={{ marginTop: 18 }}>
+              <div className="preview" style={{ padding: 18 }}>
                 <div className="previewMeta">Preview</div>
-                <div className="previewTitle">Hello, {name || "World"} 👋</div>
+                <div className="previewTitle" style={{ fontSize: 32 }}>
+                  Hello, {name || "World"} 👋
+                </div>
               </div>
             </div>
           </section>
