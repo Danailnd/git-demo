@@ -1,0 +1,35 @@
+name: Tag Tests
+
+on:
+  push:
+    tags:
+      - "test-*"
+
+jobs:
+  test:
+    name: Test tagged commit (Vitest)
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: git-actions-demo
+
+    steps:
+      - name: Checkout tagged commit
+        uses: actions/checkout@v4
+        with:
+          # GitHub automatically checks out the tag's commit for tag push events,
+          # but this makes it explicit.
+          ref: ${{ github.ref }}
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+          cache-dependency-path: git-actions-demo/package-lock.json
+
+      - name: Install deps
+        run: npm ci
+
+      - name: Run tests
+        run: npm test
