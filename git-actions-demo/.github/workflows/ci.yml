@@ -1,12 +1,13 @@
 name: CI
 
 on:
-  push:
-    branches: ["**"]
   pull_request:
+  push:
+    branches: ["main", "demo"]
 
 jobs:
   test:
+    name: Test (Vitest)
     runs-on: ubuntu-latest
 
     steps:
@@ -19,8 +20,8 @@ jobs:
           node-version: "20"
           cache: "npm"
 
-      - name: Install
+      - name: Install deps
         run: npm ci
 
-      - name: Test
+      - name: Run tests
         run: npm test
