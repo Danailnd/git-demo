@@ -34,12 +34,12 @@ export default function App() {
             <p className="meta">{today}</p>
           </div>
 
-          <button
+          {/* <button
             className="button"
             onClick={() => setTheme((t) => (t === "dark" ? "light" : "dark"))}
           >
             Toggle {theme === "dark" ? "Light" : "Dark"} Mode
-          </button>
+          </button> */}
         </header>
 
         <main className="grid">
