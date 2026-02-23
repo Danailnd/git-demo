@@ -1,6 +1,6 @@
 import { useMemo, useState } from "react";
 import dayjs from "dayjs";
-import "./app.css";
+import "./App.css";
 
 function Pill({ children }) {
   return <span className="pill">{children}</span>;
