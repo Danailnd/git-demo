@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import dayjs from "dayjs";
-import "./app.css";
+import "./App.css";
 
 const STORAGE_KEY = "git-demo:name";
 
