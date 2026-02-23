@@ -1,6 +1,6 @@
 /* Theme + layout */
 :root {
-  --bg: #0b1220;
+  --bg: #0b1221;
   --fg: rgba(255, 255, 255, 0.92);
   --muted: rgba(255, 255, 255, 0.65);
   --card: rgba(255, 255, 255, 0.06);
@@ -15,13 +15,30 @@
   position: relative;
   display: block;
   padding: 40px 20px;
-  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial,
-    "Apple Color Emoji", "Segoe UI Emoji";
+  font-family:
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    Segoe UI,
+    Roboto,
+    Helvetica,
+    Arial,
+    "Apple Color Emoji",
+    "Segoe UI Emoji";
 }
 
 .page.dark {
-  background: radial-gradient(1200px 700px at 10% 0%, rgba(59, 130, 246, 0.2), transparent 60%),
-    radial-gradient(900px 600px at 80% 20%, rgba(168, 85, 247, 0.18), transparent 60%),
+  background:
+    radial-gradient(
+      1200px 700px at 10% 0%,
+      rgba(59, 130, 246, 0.2),
+      transparent 60%
+    ),
+    radial-gradient(
+      900px 600px at 80% 20%,
+      rgba(168, 85, 247, 0.18),
+      transparent 60%
+    ),
     var(--bg);
   color: var(--fg);
 }
@@ -33,8 +50,17 @@
   --card: rgba(255, 255, 255, 0.9);
   --card-border: rgba(15, 23, 42, 0.12);
   --shadow: 0 20px 60px rgba(15, 23, 42, 0.12);
-  background: radial-gradient(1200px 700px at 10% 0%, rgba(59, 130, 246, 0.16), transparent 60%),
-    radial-gradient(900px 600px at 80% 20%, rgba(168, 85, 247, 0.12), transparent 60%),
+  background:
+    radial-gradient(
+      1200px 700px at 10% 0%,
+      rgba(59, 130, 246, 0.16),
+      transparent 60%
+    ),
+    radial-gradient(
+      900px 600px at 80% 20%,
+      rgba(168, 85, 247, 0.12),
+      transparent 60%
+    ),
     var(--bg);
   color: var(--fg);
 }
@@ -114,7 +140,10 @@
   border-radius: 16px;
   cursor: pointer;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
-  transition: transform 140ms ease, box-shadow 140ms ease, border-color 140ms ease;
+  transition:
+    transform 140ms ease,
+    box-shadow 140ms ease,
+    border-color 140ms ease;
 }
 
 .button:hover {
@@ -199,7 +228,9 @@
   color: var(--fg);
   padding: 10px 12px;
   border-radius: 16px;
-  transition: border-color 140ms ease, box-shadow 140ms ease;
+  transition:
+    border-color 140ms ease,
+    box-shadow 140ms ease;
 }
 
 .page.light .input {
@@ -225,7 +256,12 @@
   margin-top: 16px;
   border-radius: calc(var(--radius) + 2px);
   padding: 1px;
-  background: linear-gradient(135deg, rgba(96, 165, 250, 0.9), rgba(34, 211, 238, 0.9), rgba(167, 139, 250, 0.9));
+  background: linear-gradient(
+    135deg,
+    rgba(96, 165, 250, 0.9),
+    rgba(34, 211, 238, 0.9),
+    rgba(167, 139, 250, 0.9)
+  );
 }
 
 .preview {
