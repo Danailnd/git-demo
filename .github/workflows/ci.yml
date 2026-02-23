@@ -22,9 +22,18 @@ jobs:
       - run: npm ci
       - run: npm test
 
+  hello:
+    name: Say hello (after tests)
+    runs-on: ubuntu-latest
+    needs: test
+    steps:
+      - name: Hello
+        run: echo "Hello 👋 (this job runs after tests)"
+
   wait:
     name: Demo wait (3 min)
     runs-on: ubuntu-latest
+    needs: test
     steps:
       - name: Wait 3 minutes
         run: sleep 180
