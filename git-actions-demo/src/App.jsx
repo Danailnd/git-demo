@@ -29,7 +29,7 @@ export default function App() {
         <header className="header">
           <div>
             <h1 className="title">
-            Git demo <span className="gradientText">frontend</span>
+              Git demo <span className="gradientText">frontend</span>
             </h1>
             <p className="meta">{today}</p>
           </div>
@@ -44,9 +44,7 @@ export default function App() {
 
         <main className="grid">
           <section className="card mainCard">
-            <p className="cardText">
-              Type something...
-            </p>
+            <p className="cardText">Type something...</p>
 
             <div className="fieldRow">
               <input
